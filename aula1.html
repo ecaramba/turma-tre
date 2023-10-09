@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>AULA 1</title>
+		
+		<script>
+		function oi(){
+			alert("Ola galera");
+			}
+			
+		function cor(){
+			let titulo = document.getElementById("titulo");
+			let cor = document.getElementById("cor");
+			console.log(cor.value)
+			titulo.style.color = cor.value;
+		}
+		
+		function soma() {
+			//let n1 = document.getElementById("n1")
+			//let n2 = document.getElementById("n2");
+			//let resultado = document.getElementById("resultado");
+			
+			console.log(resultado);
+			resultado.innerHTML = parseFloat(n1.value) + parseFloat(n2.value);
+			
+		}
+		
+		</script>
+	</head>
+	
+	<body>
+		<h1 id="titulo">Aula 1</h1>
+		<button onclick="cor()">Clique</button>
+		<select id="cor">
+			<option>red</option>
+			<option>blue</option>
+			<option>pink</option>
+		</select>
+		
+		<h1>Calculadora</h1>
+		
+		<label>valor 1</label>
+		<input type="text" id="n1" />
+		
+		<label>valor 2</label>
+		<input type="text" id="n2" />
+		
+		<button onclick="soma()">Somar</button>
+		<button>Mult</button>
+		<button>Div</button>
+		
+		<p id="resultado">
+			Resultado
+		</p>
+	</body>
+</html>
