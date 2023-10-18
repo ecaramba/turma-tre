@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<title>Exercicios</title>
+		
+		<script>
+			
+			let cidades = ["Curitiba", "Araucaria"];
+			
+			function add() {
+				let nome = document.getElementById("nome").value;
+				let lista = document.getElementById("lista");
+				
+				if (lista.innerHTML.search(nome) > -1) {
+					alert("Nome já cadastrado");
+					return;
+				}
+				
+				cidades.push(nome);
+				
+				lista.innerHTML = "";
+				cidades.forEach((item) => {
+					lista.innerHTML += "<li>"+ item +"</li>";
+				});
+				
+			}
+			
+			function ordernar() {
+				cidades.sort();
+				
+				lista.innerHTML = "";
+				cidades.forEach((item) => {
+					lista.innerHTML += "<li>"+ item +"</li>";
+				});
+			}
+			
+			
+			let pessoas = [];
+			
+			function addPessoa() {
+				let cpf = document.getElementById("cpf-pessoa").value;
+				let nome = document.getElementById("nome-pessoa").value;
+				let lista = document.getElementById("lista-nomes");
+				pessoas.push({
+					"nome": nome,
+					"cpf": cpf
+				});
+				
+				lista.innerHTML = "";
+				pessoas.forEach((item)=>{
+					lista.innerHTML += `<tr>
+						<td>${item.nome}</td>
+						<td>${item.cpf}</td>
+					</tr>`;
+				});
+				
+			}
+			
+			function bloqueia(evento){
+				console.log(evento);
+				if (evento.key.search(/[0-9.-]/) < 0 ){
+					evento.preventDefault();
+				}
+				
+			}
+			
+			
+		</script>
+	</head>
+	
+	<body>
+		<h1>Exercicios</h1>
+		
+		<label>Nome da Cidade</label>
+		<input type="text" id="nome" />
+		<button onclick="add()">Cadastrar</button>
+		<button onclick="ordernar()">Ordenar</button>
+		
+		<ul id="lista">
+			<li>Curitiba</li>
+		</ul>
+		
+		<h2>Contatos</h2>
+		
+		<label>Nome</label>
+		<input type="text" id="nome-pessoa">
+		<br>
+		
+		<label>CPF</label>
+		<input type="text" id="cpf-pessoa"  />
+		<button onclick="addPessoa()">Cadastrar</button>
+		<button>Ordernar</button>
+		
+		<table>
+			<thead>
+			<tr>
+				<th>Nome</th>
+				<th>CPF</th>
+			</tr>
+			</thead>
+			<tbody id="lista-nomes">
+			<tr>
+				<td>Edir</td>
+				<td>123</td>
+			</tr>
+			</tbody>
+		</table>
+		<script>
+			let cpf = document.getElementById("cpf-pessoa")
+			
+			cpf.addEventListener("keydown", bloqueia)
+		</script>
+	</body>
+</html>
